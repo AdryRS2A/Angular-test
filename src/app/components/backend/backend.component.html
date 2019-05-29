@@ -1,0 +1,57 @@
+<h2>Lista Autori</h2>
+<ul *ngFor="let aut of autoris">
+  <li>{{aut.name}}--{{aut.id}}--{{aut.dataDiNascita}}</li>
+</ul>
+<H2>Lista note</H2>
+<ul *ngFor="let not of notoris, let i = index">
+  <li>{{not.title}}---{{not.id}}---{{not.content}}---{{not.createdAt}}</li>
+  <button class="btn btn-primary" (click)="appari(i)">appare il modifica</button>
+  <button class="btn btn-primary" (click)="delete">Deleta</button>
+        <div *ngIf="bol[i]">      
+          <input type="text" class="form-control" id="exampleInputnew" name="val" placeholder="Enter string"  [(ngModel)]="valT">
+          <input type="text" class="form-control" id="exampleInputnew" name="val" placeholder="Enter string"  [(ngModel)]="valC">
+          <button class="btn btn-warning" (click)="mod(not.id,valT,valC)">Cambia</button>
+        </div>
+</ul>
+<h2>Aggiungi Note</h2>
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Content</label>
+    <input type="text" class="form-control" id="exampleInputName" name="content" placeholder="Enter content" [(ngModel)]="note.content">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+      <label for="exampleInputCognome">Title</label>
+      <input type="text" class="form-control" id="exampleInputCognome" name="title" placeholder="Enter title" [(ngModel)]="note.title">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEta">Id</label>
+        <input type="number" class="form-control" id="exampleInputEta" name="id"  placeholder="Enter id Autori" [(ngModel)]="author.id">
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="manda(note)">INVIA</button>
+</form>
+<h2>PUT</h2>
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Content</label>
+    <input type="text" class="form-control" id="exampleInputName" name="content2" placeholder="Enter content" [(ngModel)]="note2.content">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+      <label for="example">Title</label>
+      <input type="text" class="form-control" id="example" name="title2" placeholder="Enter title" [(ngModel)]="note2.title">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEta">Id</label>
+        <input type="number" class="form-control" id="exampleInputEta" name="id"  placeholder="Enter id Autori" [(ngModel)]="id">
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="put(note2,id)">INVIA</button>
+</form>
+<h2>DELETE</h2>
+<form>
+    <div class="form-group">
+        <label for="exampleInputEta">Id</label>
+        <input type="number" class="form-control" id="exampleInputEta" name="id"  placeholder="Enter id Autori" [(ngModel)]="id">
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="delete(id)">INVIA</button>
+</form>

@@ -1,0 +1,30 @@
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Nome</label>
+    <input type="text" class="form-control" id="exampleInputName" name="utente.nome" placeholder="Enter nome" [(ngModel)]="utente.nome">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+      <label for="exampleInputCognome">Cognome</label>
+      <input type="text" class="form-control" id="exampleInputCognome" name="utente.cognome" placeholder="Enter cognome" [(ngModel)]="utente.cognome">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEta">Età</label>
+        <input type="number" class="form-control" id="exampleInputEta" name="utente.eta"  placeholder="Enter eta" [(ngModel)]="utente.eta">
+      </div>
+  <button type="submit" class="btn btn-primary" (click)="add(utente)">Submit</button>
+</form>
+<ul>
+    <li *ngFor="let utente of listutente">
+      <div class="list-group">
+        <a  class="list-group-item list-group-item-action active">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Cognome :{{utente.cognome}} </h5>
+            <small>Nuovo utente</small>
+          </div>
+          <p class="mb-1">Nome :{{utente.nome}}</p>
+          <small>età : {{utente.eta}} </small>
+        </a>
+      </div>
+      </li>
+  </ul>

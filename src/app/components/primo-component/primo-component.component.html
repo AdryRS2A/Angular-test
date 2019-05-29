@@ -1,0 +1,67 @@
+<h2>navigazione Avvenuta</h2>
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" [(ngModel)]="utente.nome">
+  </div>
+<div>
+    <p>{{utente.nome}}</p> <br>
+    <div [hidden]="visibile"> 
+      <strong>Nome</strong>  :{{utente.nome}} <br>
+    </div>
+  <strong>Cognome</strong> :{{utente.cognome}} <br>
+  <strong>Età</strong>  :{{utente.eta}} <br>
+</div>
+
+<div *ngIf="visibile; else altroDiv">
+  <p> Ciao ragazzi</p>
+</div>
+<ng-template #altroDiv>
+  <div>
+    <p>No Raga</p>
+  </div>
+</ng-template>
+
+<button class="btn btn-primary" (click)="changeVisibile()"[innerHTML]="bot"></button>
+
+<div [ngSwitch]="utente.nome">
+  <p *ngSwitchCase="'Adriano'"> si</p>
+  <p *ngSwitchCase="'Pino'"> no</p> 
+  <p *ngSwitchDefault>Standard </p> 
+</div>
+<br>
+<div class="form-group">
+    <label for="exampleInputCognome">add</label>
+    <input type="text" class="form-control" id="exampleInputnew" name="new" placeholder="Enter string"  [(ngModel)]="new">
+  </div>
+<button class="btn btn-primary" (click)="add(new)">aggiunggi</button>
+<br>
+<div class="form-group">
+    <label for="exampleInputCognome">rem</label>
+    <input type="number" class="form-control" id="exampleInputnew" name="ind" placeholder="Enter num"  [(ngModel)]="ind">
+  </div>
+<button class="btn btn-primary" (click)="remove(ind)">rimuovi</button>
+<br>
+<div class="form-group">
+    <label for="exampleInputCognome">Mod</label>
+    <!-- <input type="number" class="form-control" id="exampleInputnew" name="indd" placeholder="Enter num"  [(ngModel)]="indd"> -->
+    <!-- <input type="text" class="form-control" id="exampleInputnew" name="val" placeholder="Enter string"  [(ngModel)]="val"> -->
+  </div>
+  <br>
+  <ul>
+    <li *ngFor="let stringa of mioArrayString; let i = index">
+      <div >
+        <p> nome = {{stringa}} // id = {{i}}</p>
+        <button class="btn btn-primary" (click)="appari(i)">appare il modifica</button>
+        <div *ngIf="apparizione[i]">      
+          <input type="text" class="form-control" id="exampleInputnew" name="val" placeholder="Enter string"  [(ngModel)]="val">
+          <button class="btn btn-warning" (click)="Mod(i,val)">Cambia</button>
+        </div>
+      </div> <br>
+    </li>
+  </ul>  
+<br>
+<div> 
+  <p>{{mioArrayString[1]}}</p>
+</div>

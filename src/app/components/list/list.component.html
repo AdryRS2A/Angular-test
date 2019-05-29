@@ -1,0 +1,14 @@
+<ul>
+    <li *ngFor="let utente of listutente">
+      <div class="list-group">
+        <a  class="list-group-item list-group-item-action active">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Cognome :{{utente.cognome}} </h5>
+            <small>Nuovo utente</small>
+          </div>
+          <p class="mb-1">Nome :{{utente.nome}}</p>
+          <small>età : {{utente.eta}} </small>
+        </a>
+      </div>
+      </li>
+  </ul>
